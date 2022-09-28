@@ -1,0 +1,41 @@
+---
+server:
+  port: 9099
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://192.168.100.18:9000"
+  data:
+    rest:
+      basePath: "/api"
+  jpa:
+    properties:
+      hibernate:
+        dialect: "org.hibernate.dialect.SQLServer2012Dialect"
+        format_sql: true
+    hibernate:
+      ddl-auto: "update"
+      naming:
+        physical-strategy: "org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy"
+  datasource:
+    driver-class-name: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    url: "jdbc:sqlserver://192.168.100.5:1433;databaseName=padb_masarif"
+    username: "sa"
+    password: "D4tacom!"
+  flyway:
+    enabled: true
+    locations: "classpath:db/migration"
+    table: "powerassistant_schema_history"
+    baselineOnMigrate: true
+  main.banner-mode: "LOG"
+logging:
+  level:
+    root: "INFO"
+  file:
+    name: "logs/myrepots/myrepots.log"
+  logback.rollingpolicy:
+    file-name-pattern: "logs/myrepots/myrepots-%d{yyyy-MM-dd}.%i.log"
+    max-file-size: "1MB"
+    total-size-cap: "128MB"

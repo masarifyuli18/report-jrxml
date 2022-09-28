@@ -1,0 +1,19 @@
+ip: 192.168.100.18
+auth:
+  ip: null
+  port: 9000
+resource:
+  ip: null
+  port: 9090
+database:
+  ip: 192.168.100.5
+  port: 1433
+  username: sa
+  password: D4tacom!
+  name: padb_masarif
+messaging:
+  key: ws
+  ip: null
+  port: 9005
+license:
+  path: D:\PROJECT\Power A\Runner
